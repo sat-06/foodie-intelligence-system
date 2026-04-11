@@ -52,3 +52,20 @@ FROM food_orders
 GROUP BY `Customer Id`
 ORDER BY total_spent DESC
 LIMIT 10;
+
+-- =========================
+-- 4. PEAK ORDERING TIME
+-- =========================
+
+--Orders by Hour
+SELECT HOUR(`Order Placed At`) AS order_hour,
+COUNT(*) AS total_orders
+FROM food_orders
+GROUP BY order_hour
+ORDER BY total_orders DESC;
+--Orders by Day
+SELECT DATE(`Order Placed At`) AS order_date,
+COUNT(*) AS total_orders
+FROM food_orders
+GROUP BY order_date
+ORDER BY total_orders DESC;
