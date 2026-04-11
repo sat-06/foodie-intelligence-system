@@ -33,3 +33,6 @@ foodie-intelligence-system/
 ├── README.md
 ├── requirements.txt
 └── .gitignore
+
+Data analysis done
+Data to be imported in the SQL
