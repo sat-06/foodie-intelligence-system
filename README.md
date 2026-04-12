@@ -37,3 +37,6 @@ foodie-intelligence-system/
 Data analysis done
 Data to be imported in the SQL
 Features base done
+Basic Data cleaning done
+Features to be imported
+Workbench queries successfull 
