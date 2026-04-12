@@ -36,3 +36,4 @@ foodie-intelligence-system/
 
 Data analysis done
 Data to be imported in the SQL
+Features base done
