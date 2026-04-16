@@ -44,3 +44,4 @@ Features to be added
 NO update today
 Data read successfully
 NO work updates 
+system architecture update
