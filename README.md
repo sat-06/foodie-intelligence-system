@@ -34,18 +34,3 @@ foodie-intelligence-system/
 ├── requirements.txt
 └── .gitignore
 
-Data analysis done
-Data to be imported in the SQL
-Features base done
-Basic Data cleaning done
-Features to be imported
-Workbench queries successfull 
-Features to be added
-NO update today
-Data read successfully
-NO work updates 
-system architecture update
-No work updates today
-No project progress today
-No update today
-Project update
