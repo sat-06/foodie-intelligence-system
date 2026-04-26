@@ -33,5 +33,3 @@ foodie-intelligence-system/
 ├── README.md
 ├── requirements.txt
 └── .gitignore
-
-project progress today
