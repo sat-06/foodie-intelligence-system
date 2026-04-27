@@ -1,0 +1,176 @@
+.statCard {
+  position: relative;
+  padding: 24px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 243, 0.95) 100%);
+  border: 1px solid rgba(255, 107, 53, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(255, 107, 53, 0.08);
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+.statCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(255, 107, 53, 0.15);
+  border-color: rgba(255, 107, 53, 0.25);
+}
+
+/* Gradient Variants */
+.statCard.gradient-orange {
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 140, 66, 0.05) 100%);
+  border-color: rgba(255, 107, 53, 0.2);
+}
+
+.statCard.gradient-orange:hover {
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.15) 0%, rgba(255, 140, 66, 0.1) 100%);
+  box-shadow: 0 12px 40px rgba(255, 107, 53, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.statCard.gradient-amber {
+  background: linear-gradient(135deg, rgba(253, 185, 19, 0.1) 0%, rgba(255, 175, 71, 0.05) 100%);
+  border-color: rgba(253, 185, 19, 0.2);
+}
+
+.statCard.gradient-amber:hover {
+  background: linear-gradient(135deg, rgba(253, 185, 19, 0.15) 0%, rgba(255, 175, 71, 0.1) 100%);
+  box-shadow: 0 12px 40px rgba(253, 185, 19, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.statCard.gradient-cool {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 153, 204, 0.05) 100%);
+  border-color: rgba(0, 212, 255, 0.2);
+}
+
+.statCard.gradient-cool:hover {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(0, 153, 204, 0.1) 100%);
+  box-shadow: 0 12px 40px rgba(0, 212, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.titleSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.trendLabel {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+  width: fit-content;
+  transition: all 0.25s ease;
+}
+
+.trendLabel.positive {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+}
+
+.trendLabel.negative {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--error);
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.valueSection {
+  margin-bottom: 16px;
+}
+
+.value {
+  font-size: 36px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  line-height: 1;
+}
+
+.footer {
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 107, 53, 0.1);
+}
+
+.sparkline {
+  height: 24px;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    rgba(255, 107, 53, 0.3) 25%,
+    rgba(255, 140, 66, 0.4) 50%,
+    rgba(255, 107, 53, 0.3) 75%,
+    transparent 100%
+  );
+  border-radius: 6px;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .statCard {
+    padding: 16px;
+  }
+
+  .value {
+    font-size: 28px;
+  }
+
+  .iconWrapper {
+    width: 40px;
+    height: 40px;
+  }
+}

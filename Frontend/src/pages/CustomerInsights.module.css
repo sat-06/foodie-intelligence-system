@@ -1,0 +1,211 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 24px;
+}
+
+.chartHeader {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+}
+
+.chartHeader h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 4px 0;
+}
+
+.chartHeader p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.tooltipContent {
+  padding: 12px 16px;
+  background: rgba(26, 26, 26, 0.95);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+.tooltipLabel {
+  color: var(--text-inverse);
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  font-size: 13px;
+}
+
+.tooltipContent p {
+  color: var(--text-inverse);
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Segments Section */
+.segmentsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 0 20px;
+}
+
+.segmentsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.segmentCard {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: slideInUp 0.6s ease-out both;
+}
+
+.segmentCard:nth-child(1) { animation-delay: 0ms; }
+.segmentCard:nth-child(2) { animation-delay: 100ms; }
+.segmentCard:nth-child(3) { animation-delay: 200ms; }
+.segmentCard:nth-child(4) { animation-delay: 300ms; }
+
+.segmentCard:hover {
+  transform: translateY(-8px);
+}
+
+.segmentContent {
+  padding: 24px;
+}
+
+.segmentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.segmentTitle {
+  flex: 1;
+}
+
+.segmentName {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+}
+
+.segmentCount {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(255, 107, 53, 0.2);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.segmentBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+}
+
+.segmentDescription {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+}
+
+.segmentStats {
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 107, 53, 0.1);
+}
+
+.stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.statLabel {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.statValue {
+  font-size: 16px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 16px;
+    gap: 40px;
+  }
+
+  .grid {
+    gap: 16px;
+  }
+
+  .segmentsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .segmentCard {
+    margin-bottom: 0;
+  }
+}

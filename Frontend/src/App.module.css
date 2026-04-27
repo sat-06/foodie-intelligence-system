@@ -1,0 +1,36 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg-secondary);
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+}
+
+.footer {
+  background: linear-gradient(135deg, #1A1A1A 0%, #2A2A2A 100%);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid var(--border-color);
+  margin-top: 3rem;
+}
+
+.footer p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem;
+  }
+
+  .footer p {
+    font-size: 0.9rem;
+  }
+}

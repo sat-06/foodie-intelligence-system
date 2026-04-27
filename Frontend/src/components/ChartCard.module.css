@@ -1,0 +1,75 @@
+.card {
+  background: var(--bg-primary);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 12px 25px rgba(255, 107, 53, 0.1);
+  border-color: var(--secondary);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--bg-secondary);
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.description {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Recharts Custom Styling */
+.content :global(.recharts-wrapper) {
+  margin: 0 auto;
+}
+
+.content :global(.recharts-surface) {
+  display: flex;
+  justify-content: center;
+}
+
+.content :global(.recharts-cartesian-axis-tick text) {
+  fill: var(--text-secondary);
+  font-size: 12px;
+}
+
+.content :global(.recharts-legend-wrapper) {
+  padding-top: 1rem !important;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 1.25rem;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .content {
+    overflow-x: auto;
+  }
+}
