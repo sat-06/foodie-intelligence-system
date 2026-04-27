@@ -33,3 +33,4 @@ foodie-intelligence-system/
 ├── README.md
 ├── requirements.txt
 └── .gitignore
+UI to be added
