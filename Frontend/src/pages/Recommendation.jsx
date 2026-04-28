@@ -4,8 +4,8 @@ import FilterPanel from '../components/FilterPanel';
 import RecommendationCard from '../components/RecommendationCard';
 import GlassCard from '../components/GlassCard';
 import SectionHeader from '../components/SectionHeader';
-import { recommendedRestaurants, recommendedFoods } from '../data/mockData';
 import { Sparkles, Lightbulb, MapPin, Clock, Wallet, BarChart3 } from 'lucide-react';
+import foodOrders from '../data/finalFoodOrders.json';
 
 export default function Recommendation() {
   const [recommendations, setRecommendations] = useState(null);
