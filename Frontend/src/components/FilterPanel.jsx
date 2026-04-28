@@ -1,23 +1,53 @@
 import React, { useState } from 'react';
 import styles from './FilterPanel.module.css';
 import { Filter } from 'lucide-react';
-import { cities, subzones, hours, spendingCategories, frequencyCategories } from '../data/mockData';
+import foodOrders from '../data/finalFoodOrders.json';
+
+// Unique cities from real dataset
+const cities = [...new Set(foodOrders.map(item => item.City).filter(Boolean))];
+
+// Subzones grouped city-wise from real dataset
+const subzones = {};
+cities.forEach(city => {
+  subzones[city] = [
+    ...new Set(
+      foodOrders
+        .filter(item => item.City === city)
+        .map(item => item.Subzone)
+        .filter(Boolean)
+    )
+  ];
+});
+
+// Unique hours from real dataset
+const hours = [...new Set(foodOrders.map(item => item.order_hour).filter(hour => hour !== null && hour !== undefined))]
+  .sort((a, b) => Number(a) - Number(b));
+
+// Categories from real dataset
+const spendingCategories = [
+  ...new Set(foodOrders.map(item => item.spending_category).filter(Boolean))
+];
+
+const frequencyCategories = [
+  ...new Set(foodOrders.map(item => item.frequency_category).filter(Boolean))
+];
 
 export default function FilterPanel({ onFilter }) {
   const [filters, setFilters] = useState({
-    city: cities[0],
-    subzone: subzones[cities[0]][0],
-    hour: hours[11],
-    spendingCategory: spendingCategories[0],
-    frequencyCategory: frequencyCategories[0]
+    city: cities[0] || '',
+    subzone: subzones[cities[0]]?.[0] || '',
+    hour: hours[0] || '',
+    spendingCategory: spendingCategories[0] || '',
+    frequencyCategory: frequencyCategories[0] || ''
   });
 
   const handleCityChange = (e) => {
     const newCity = e.target.value;
+
     setFilters(prev => ({
       ...prev,
       city: newCity,
-      subzone: subzones[newCity][0]
+      subzone: subzones[newCity]?.[0] || ''
     }));
   };
 
@@ -64,7 +94,7 @@ export default function FilterPanel({ onFilter }) {
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.filterGroup}>
           <label htmlFor="city">City</label>
-          <select 
+          <select
             id="city"
             value={filters.city}
             onChange={handleCityChange}
@@ -78,13 +108,13 @@ export default function FilterPanel({ onFilter }) {
 
         <div className={styles.filterGroup}>
           <label htmlFor="subzone">Subzone</label>
-          <select 
+          <select
             id="subzone"
             value={filters.subzone}
             onChange={handleSubzoneChange}
             className={styles.select}
           >
-            {subzones[filters.city].map(zone => (
+            {(subzones[filters.city] || []).map(zone => (
               <option key={zone} value={zone}>{zone}</option>
             ))}
           </select>
@@ -92,21 +122,21 @@ export default function FilterPanel({ onFilter }) {
 
         <div className={styles.filterGroup}>
           <label htmlFor="hour">Preferred Hour</label>
-          <select 
+          <select
             id="hour"
             value={filters.hour}
             onChange={handleHourChange}
             className={styles.select}
           >
             {hours.map(hour => (
-              <option key={hour} value={hour}>{hour}</option>
+              <option key={hour} value={hour}>{hour}:00</option>
             ))}
           </select>
         </div>
 
         <div className={styles.filterGroup}>
           <label htmlFor="spending">Spending Category</label>
-          <select 
+          <select
             id="spending"
             value={filters.spendingCategory}
             onChange={handleSpendingChange}
@@ -120,7 +150,7 @@ export default function FilterPanel({ onFilter }) {
 
         <div className={styles.filterGroup}>
           <label htmlFor="frequency">Frequency Category</label>
-          <select 
+          <select
             id="frequency"
             value={filters.frequencyCategory}
             onChange={handleFrequencyChange}
