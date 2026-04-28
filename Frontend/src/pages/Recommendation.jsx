@@ -6,22 +6,64 @@ import GlassCard from '../components/GlassCard';
 import SectionHeader from '../components/SectionHeader';
 import { Sparkles, Lightbulb, MapPin, Clock, Wallet, BarChart3 } from 'lucide-react';
 import foodOrders from '../data/finalFoodOrders.json';
+const getTopValues = (data, key, limit) => {
+  const count = {};
 
+  data.forEach(item => {
+    const value = item[key];
+
+    if (value) {
+      count[value] = (count[value] || 0) + 1;
+    }
+  });
+
+  return Object.entries(count)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, limit)
+    .map(([name, freq], index) => ({
+      id: index + 1,
+      name,
+      description: `${freq} orders`
+    }));
+};
 export default function Recommendation() {
   const [recommendations, setRecommendations] = useState(null);
   const [activeFilter, setActiveFilter] = useState(null);
 
   const handleFilter = (filters) => {
-    setActiveFilter(filters);
-    // Show recommendations after filter applied
-    setTimeout(() => {
-      setRecommendations({
-        restaurants: recommendedRestaurants.slice(0, 6),
-        foods: recommendedFoods.slice(0, 8),
-        filters: filters
-      });
-    }, 300);
-  };
+  setActiveFilter(filters);
+
+  let filtered = foodOrders;
+
+  if (filters.city) {
+    filtered = filtered.filter(item => item.City === filters.city);
+  }
+
+  if (filters.hour) {
+    filtered = filtered.filter(item => Number(item.order_hour) === Number(filters.hour));
+  }
+
+  if (filters.spendingCategory) {
+    filtered = filtered.filter(item => item.spending_category === filters.spendingCategory);
+  }
+
+  if (filters.frequencyCategory) {
+    filtered = filtered.filter(item => item.frequency_category === filters.frequencyCategory);
+  }
+
+  if (filtered.length === 0) {
+    filtered = foodOrders;
+  }
+
+  const restaurants = getTopValues(filtered, 'Resto_name', 6);
+  const foods = getTopValues(filtered, 'Items_in_order', 8);
+
+  setRecommendations({
+    restaurants,
+    foods,
+    filters
+  });
+};
 
   const getFilterIcon = (label) => {
     switch(label) {
