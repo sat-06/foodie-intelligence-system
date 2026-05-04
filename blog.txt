@@ -1,3 +1,38 @@
-Blog to be upated
-Project Blog
-Blog published
+Introduction
+With so many options on the food menu we often spend more time in thinking what to order rather than actually ordering. The online food platforms provide a huge food menu along with the recommendations, but does recommendations really make it easy for the user to order the food?
+This is where the idea of Foodie Intelligence System comes into picture — building a small but effective system that will give the food recommendations based on the real time data and on the common order history of the users.
+The Actual Idea
+Most food recommendation systems today do not fully consider:
+
+What people prefer at a specific time of day?
+Popular choices in a particular location
+How customer behavior influences food decisions?
+As a result the user ends up browsing endlessly without getting clear suggestions.
+
+The goal of the project is simple:-
+
+Instead of relying on the random suggestions, the system will make the use the real time data based on the common trends, patterns, and the order histories to help user to decide what to eat.
+
+Idea To System
+When an idea is to be turned into an actual solution, it needs to have a technical support at the backend. This is what is done here as well, the implementation started with collecting huge amount of raw data which had meaningful insights but was to be processed in order to build something with more accuracy.
+The Technical Support
+The data was studied to the deepest depth possible. The patterns, trends and the visual insights were obtained and studied using the basic python libraries :- NumPy, Pandas, Matplotlib, Seaborn.
+The building of the actual recommendations system started after the preprocessing of the raw data. The data was categorized into separate columns based on the common restaurants from where the food was ordered, the time at which they were ordered, the frequency of the a certain cuisine which was ordered and the total money spent by a certain user on particular restaurant or cuisine of that particular restaurant. To get the desired results, the filters were pre tested on the SQL database, later on the queries were transformed from the normal database queries to the python recommendation system.
+The Final Presentation
+The final solution, instead of just displaying the data and numbers with charts, the system focuses on making the data useful, it allows the user to explore patterns, and make visual insights to make the decision. The user has the access to apply the filters based on the city, restaurant name, the cuisine type and then get recommendations.
+
+The overall solution works as the Pre Machine Learning model, which make predictions using the python statistical libraires and not the core ML libraires.
+
+The solution is presented in front of the user with the help of a rough frontend, which is integrated with the real time dataset.
+Is It Feasible?
+From a feasibility perspective, the approach is efficient because it does not rely on complex infrastructure or heavy computation. It works by analyzing available data and extracting patterns, making it suitable even for systems with limited resources. This makes it adaptable for small-scale applications as well as larger platforms.
+
+The concept can be extended in multiple directions. It can be integrated into food delivery platforms to provide more personalized recommendations, or used by restaurants to understand customer preferences and improve their offerings. With further development, the system can also support real-time data, multiple locations, and more advanced personalization.
+Conclusion
+The Foodie Intelligence System highlights how data can be used to simplify everyday decisions. What started as a simple idea — helping users decide what to eat — evolved into a complete system that connects data analysis with a practical user experience. This project was not just about working with data, but about understanding how insights can be transformed into something meaningful and usable. It helped me strengthen my fundamentals in data handling, visualization, and system design, while also exploring how to present solutions in an interactive way.
+Live Project
+Below is the link for the project website, and GitHub for codes!
+
+GitHub :- https://github.com/sat-06/foodie-intelligence-system.git
+
+Website :- https://foodie-intelligence-system-uwv3.vercel.app/
