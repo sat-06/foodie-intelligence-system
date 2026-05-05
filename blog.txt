@@ -32,7 +32,3 @@ Conclusion
 The Foodie Intelligence System highlights how data can be used to simplify everyday decisions. What started as a simple idea — helping users decide what to eat — evolved into a complete system that connects data analysis with a practical user experience. This project was not just about working with data, but about understanding how insights can be transformed into something meaningful and usable. It helped me strengthen my fundamentals in data handling, visualization, and system design, while also exploring how to present solutions in an interactive way.
 Live Project
 Below is the link for the project website, and GitHub for codes!
-
-GitHub :- https://github.com/sat-06/foodie-intelligence-system.git
-
-Website :- https://foodie-intelligence-system-uwv3.vercel.app/
